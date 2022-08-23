@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://xmlns.jcp.org/jsf/core"
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+>
+    <f:view>
+        <h:head>
+            <h:outputStylesheet name="style/style2.css"/>
+        </h:head>
+        <h:body>
+
+            <nav>
+                <h:form>
+                    <h:commandLink action="#{navBean.pageBis}" value="Page 1">
+                        <f:param name="pageIdBis" value="premierePage"/>
+                    </h:commandLink>
+
+                    <h:commandLink action="#{navBean.pageBis}" value="Page 2">
+                        <f:param name="pageIdBis" value="deuxiemePage"/>
+                    </h:commandLink>
+
+                    <h:commandLink action="#{navBean.pageBis}" value="Page 3">
+                        <f:param name="pageIdBis" value="troisiemePage"/>
+                    </h:commandLink>
+
+                    <h:commandLink action="#{navBean.pageBis}" value="Accueil">
+                        <f:param name="pageIdBis" value="accueil"/>
+                    </h:commandLink>
+                </h:form>
+            </nav>
+            <h1>
+                <h:outputText value="Page Admin"/>
+            </h1>
+                    
+        </h:body>
+    </f:view>
+</html>

@@ -16,6 +16,7 @@
                     <h:commandButton action="#{navBean.index()}" value="Index"/>
                     <h:commandButton action="#{navBean.about()}" value="About"/>
                     <h:commandButton action="#{navBean.login()}" value="Login"/>
+                    <h:commandButton action="#{navBean.page1()}" value="Page1"/>
                 </h:form>
             </nav>
         
@@ -24,6 +25,14 @@
             </h1>
 
             <h2>Bienvenue <h:outputText value="#{userBean.username}"/></h2>
+
+
+            <h:outputText rendered="#{userBean.isLog()}">Vous etes Admin</h:outputText>
+            <h:form rendered="#{userBean.isLog()}">
+                <h:commandLink action="#{navBean.pageBis}" value="Page admin">
+                    <f:param name="pageIdBis" value="admin"/>
+                </h:commandLink>
+            </h:form>
 
 
         </h:body>

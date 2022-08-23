@@ -23,6 +23,10 @@ public class NavBean implements Serializable
 	@ManagedProperty(value = "#{param.pageId}")
 	private String pageId;
 
+	@Inject
+	@ManagedProperty(value = "#{param.pageIdBis}")
+	private String pageIdBis;
+
 	@PostConstruct
 	public void post(){
 		System.out.println("apres creation du bean");
@@ -45,9 +49,19 @@ public class NavBean implements Serializable
 		return "login?faces-redirect=true";
 	}
 
+	public String page1() {
+		return "page1?faces-redirect=true";
+	}
 
 	public String page(){
 		System.out.println(pageId);
 		return this.pageId+"?faces-redirect=true";
 	}
+
+
+	public String pageBis(){
+		System.out.println(pageIdBis);
+		return this.pageIdBis;
+	}
+
 }

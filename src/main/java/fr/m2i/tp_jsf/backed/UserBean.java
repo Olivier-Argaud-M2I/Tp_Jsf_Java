@@ -22,7 +22,7 @@ public class UserBean implements Serializable
 	private String nom = "argaud";
 	private String prenom = "olivier";
 	private String password = "";
-	private String username;
+	private String username = "";
 
 	public String getNom() {
 		return nom.toUpperCase();
@@ -47,5 +47,12 @@ public class UserBean implements Serializable
 	}
 	public void setUsername(String username) {
 		this.username = username;
+	}
+
+	public Boolean isLog(){
+		if(!this.username.equals("admin")){
+			return false;
+		}
+		return true;
 	}
 }
