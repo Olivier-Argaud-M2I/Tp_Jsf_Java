@@ -1,42 +1,42 @@
 <!DOCTYPE html>
-<html xmlns:f="http://xmlns.jcp.org/jsf/core" 
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
-      
-      >
-    <f:view> <!-- OBLIGATOIRE tout les JSF dans être dans une view -->
+<html
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://xmlns.jcp.org/jsf/core"
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+>
+    <f:view>
         <h:head>
-            
+            <h:outputStylesheet name="style/style3.css"/>
         </h:head>
         <h:body>
 
             <nav>
                 <h:form>
-                    <h:commandButton action="#{navBean.index()}" value="Index"/>
+                    <h:commandLink action="#{navBean.page}" value="Index">
+                        <f:param name="pageId" value="index"/>
+                    </h:commandLink>
                 </h:form>
-            </nav>
-
-            <nav>
                 <h:form>
-                    <h:commandButton action="#{navBean.about()}" value="About"/>
+                    <h:commandLink action="#{navBean.page}" value="About">
+                        <f:param name="pageId" value="about"/>
+                    </h:commandLink>
                 </h:form>
-            </nav>
-
-            <nav>
                 <h:form>
-                    <h:commandButton action="#{navBean.login()}" value="Login"/>
+                    <h:commandLink action="#{navBean.page}" value="Login">
+                        <f:param name="pageId" value="login"/>
+                    </h:commandLink>
                 </h:form>
             </nav>
-        
 
             
             <h:form>
 
-            	User Name : <h:inputText value="#{userBean.username}"></h:inputText>
+            	User Name : <h:inputText value="#{userBean.username}"/>
             	<br/>
-            	Password : <h:inputSecret value="#{userBean.password}"></h:inputSecret>
+            	Password : <h:inputSecret value="#{userBean.password}"/>
             	<br/>
-            	<h:commandButton action="#{navBean.about()}" value="ENVOYER"/>
+            	<h:commandButton action="#{navBean.about}" value="ENVOYER"/>
 
             </h:form>
             
