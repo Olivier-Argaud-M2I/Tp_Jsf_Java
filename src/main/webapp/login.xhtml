@@ -4,6 +4,8 @@
         xmlns:f="http://xmlns.jcp.org/jsf/core"
         xmlns:h="http://xmlns.jcp.org/jsf/html"
         xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+
 >
     <f:view>
         <h:head>
@@ -29,16 +31,44 @@
                 </h:form>
             </nav>
 
-            
+
+
             <h:form>
+                Login : <h:inputText value="#{userBean.username}" />
+                <h:commandButton value="Login" actionListener="#{userBean.isLog()}">
+                    <f:ajax render="panel" execute="@form"/>
 
-            	User Name : <h:inputText value="#{userBean.username}"/>
-            	<br/>
-            	Password : <h:inputSecret value="#{userBean.password}"/>
-            	<br/>
-            	<h:commandButton action="#{navBean.about}" value="ENVOYER"/>
-
+                </h:commandButton>
             </h:form>
+
+            <h:panelGroup id="panel">
+                <h:panelGroup rendered="#{userBean.isLog()}">
+                    <h:outputText value="#{userBean.username}"/>
+                    <strong>Vous êtes loggé</strong>
+                </h:panelGroup>
+                <h:panelGroup rendered="#{not userBean.isLog()}">
+                    <h:outputText value="#{userBean.username}"/>
+                    <strong>Vous n'êtes pas loggé</strong>
+                </h:panelGroup>
+            </h:panelGroup>
+
+            <!-- balise pour enlever du code (equivalent commentaire) -->
+            <ui:remove>
+                <h:form>
+
+                    User Name : <h:inputText value="#{userBean.username}"/>
+                    <br/>
+                    Password : <h:inputSecret value="#{userBean.password}"/>
+                    <br/>
+                    <h:commandButton action="#{navBean.about}" value="ENVOYER"/>
+
+                </h:form>
+            </ui:remove>
+
+
+
+
+
 
             <h:outputText rendered="#{userBean.isLog()}">Vous etes Admin</h:outputText>
             <h:form rendered="#{userBean.isLog()}">

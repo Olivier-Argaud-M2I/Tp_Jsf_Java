@@ -21,4 +21,11 @@
         <welcome-file>/faces/index.xhtml</welcome-file>
     </welcome-file-list>
 
+    <!-- Pour rendre les commentaire actif dans JSP> -->
+    <context-param>
+        <param-name>facelets.SKIP_COMMENTS</param-name>
+        <param-value>true</param-value>
+    </context-param>
+
+
 </web-app>
