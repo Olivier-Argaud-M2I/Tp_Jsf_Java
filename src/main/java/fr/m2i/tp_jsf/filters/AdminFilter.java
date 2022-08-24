@@ -4,6 +4,7 @@ import fr.m2i.tp_jsf.backed.UserBean;
 import jakarta.inject.Inject;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.*;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
@@ -27,7 +28,7 @@ public class AdminFilter implements Filter {
 
         if(!userbean.isLog()){
             HttpServletResponse httpResponse = (HttpServletResponse) response;
-            httpResponse.sendRedirect("/Tp_jsf/login.xhtml");
+            httpResponse.sendRedirect(((HttpServletRequest)request).getContextPath()+"/login.xhtml");
         }
 
         chain.doFilter(request, response);
