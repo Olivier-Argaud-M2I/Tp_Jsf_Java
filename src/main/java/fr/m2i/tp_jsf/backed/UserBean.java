@@ -8,7 +8,9 @@ import jakarta.inject.Inject;
 import jakarta.inject.Named;
 
 import java.io.Serializable;
-
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 
 @Named
@@ -19,10 +21,20 @@ public class UserBean implements Serializable
 	private static final long serialVersionUID = 1L;
 
 
-	private String nom = "argaud";
-	private String prenom = "olivier";
-	private String password = "";
-	private String username = "";
+	private String nom;
+	private String prenom;
+	private String password;
+	private String username;
+	private List<String> liste;
+
+	@PostConstruct
+	public void init(){
+		nom= "argaud";
+		prenom="olivier";
+		password="";
+		username="";
+		liste = new ArrayList<String>(Arrays.asList("Rouge", "Vert", "Bleu"));
+	}
 
 	public String getNom() {
 		return nom.toUpperCase();
@@ -47,6 +59,12 @@ public class UserBean implements Serializable
 	}
 	public void setUsername(String username) {
 		this.username = username;
+	}
+	public List<String> getListe() {
+		return liste;
+	}
+	public void setListe(List<String> liste) {
+		this.liste = liste;
 	}
 
 	public Boolean isLog(){

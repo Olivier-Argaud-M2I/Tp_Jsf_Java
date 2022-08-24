@@ -29,15 +29,19 @@
                         <f:param name="pageId" value="login"/>
                     </h:commandLink>
                 </h:form>
+                <h:form>
+                    <h:commandLink action="#{navBean.pageBis}" value="Page4">
+                        <f:param name="pageIdBis" value="quatriemePage"/>
+                    </h:commandLink>
+                </h:form>
             </nav>
 
 
-
+            <h2>formulaire avec ajax</h2>
             <h:form>
                 Login : <h:inputText value="#{userBean.username}" />
                 <h:commandButton value="Login" actionListener="#{userBean.isLog()}">
                     <f:ajax render="panel" execute="@form"/>
-
                 </h:commandButton>
             </h:form>
 
@@ -52,20 +56,23 @@
                 </h:panelGroup>
             </h:panelGroup>
 
+
+
             <!-- balise pour enlever du code (equivalent commentaire) -->
             <ui:remove>
-                <h:form>
 
-                    User Name : <h:inputText value="#{userBean.username}"/>
-                    <br/>
-                    Password : <h:inputSecret value="#{userBean.password}"/>
-                    <br/>
-                    <h:commandButton action="#{navBean.about}" value="ENVOYER"/>
-
-                </h:form>
             </ui:remove>
 
+            <h2>formulaire classique</h2>
+            <h:form>
 
+                User Name : <h:inputText value="#{userBean.username}"/>
+                <br/>
+                Password : <h:inputSecret value="#{userBean.password}"/>
+                <br/>
+                <h:commandButton action="#{navBean.about}" value="ENVOYER"/>
+
+            </h:form>
 
 
 
@@ -76,9 +83,48 @@
                     <f:param name="pageIdBis" value="admin"/>
                 </h:commandLink>
             </h:form>
-            
 
-                    
+
+            <h:form>
+                <h:panelGroup>
+                    <h:panelGrid columns="2">
+
+                        <f:facet name="header">
+                            <h:outputText value="login"/>
+                        </f:facet>
+
+                        <h:outputLabel for="inputNom" value="Nom : "/>
+                        <h:inputText id="inputNom" value="#{userBean.nom}"/>
+
+                        <h:outputLabel for="inputPrenom" value="Prenom : "/>
+                        <h:inputText id="inputPrenom" value="#{userBean.prenom}"/>
+
+                        <f:facet name="footer">
+                            <h:outputText value="Team 0%CSS"/>
+                        </f:facet>
+                    </h:panelGrid>
+                </h:panelGroup>
+            </h:form>
+
+
+            <h2>Datatable</h2>
+            <h:dataTable value="#{userBean.liste}" var="element">
+
+                <h:column>
+                    <f:facet name="header">Couleur</f:facet>
+                    #{element}
+                </h:column>
+
+            </h:dataTable>
+
+            <h2>ui:repeat</h2>
+            <ui:repeat value="#{userBean.liste}" var="element">
+                <li>#{element}</li>
+            </ui:repeat>
+
+
+
+
         </h:body>
     </f:view>
 </html>

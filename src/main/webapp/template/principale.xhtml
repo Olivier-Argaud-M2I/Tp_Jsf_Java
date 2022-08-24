@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://xmlns.jcp.org/jsf/core"
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+>
+    <f:view>
+
+        <h:head>
+            <h:outputStylesheet name="style/style3.css"/>
+        </h:head>
+
+        <h:body>
+
+            <header>
+                <h1><ui:insert name="titre"/></h1>
+            </header>
+
+            <nav>
+                <h:form>
+                    <h:commandLink action="#{navBean.page}" value="Index">
+                        <f:param name="pageId" value="index"/>
+                    </h:commandLink>
+
+                    <h:commandLink action="#{navBean.page}" value="About">
+                        <f:param name="pageId" value="about"/>
+                    </h:commandLink>
+
+                    <h:commandLink action="#{navBean.page}" value="Login">
+                        <f:param name="pageId" value="login"/>
+                    </h:commandLink>
+
+                    <h:commandLink action="#{navBean.pageBis}" value="Page1">
+                        <f:param name="pageIdBis" value="premierePage"/>
+                    </h:commandLink>
+
+                    <h:commandLink action="#{navBean.pageBis}" value="Page2">
+                        <f:param name="pageIdBis" value="deuxiemePage"/>
+                    </h:commandLink>
+
+                    <h:commandLink action="#{navBean.pageBis}" value="Page3">
+                        <f:param name="pageIdBis" value="troisiemePage"/>
+                    </h:commandLink>
+
+                    <h:commandLink action="#{navBean.pageBis}" value="Page4">
+                        <f:param name="pageIdBis" value="quatriemePage"/>
+                    </h:commandLink>
+
+                    <h:commandLink action="#{navBean.pageBis}" value="Page5">
+                        <f:param name="pageIdBis" value="cinquiemePage"/>
+                    </h:commandLink>
+                </h:form>
+            </nav>
+
+            <main>
+                <ui:insert name="main"/>
+            </main>
+
+            <footer>
+                <hr/>
+                <h:outputText value="0% CSS"/>
+            </footer>
+
+        </h:body>
+
+    </f:view>
+</html>

@@ -28,6 +28,18 @@
         </navigation-case>
 
         <navigation-case>
+            <from-outcome>quatriemePage</from-outcome>
+            <to-view-id>/pages/page4.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>cinquiemePage</from-outcome>
+            <to-view-id>/pages/page5.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+
+        <navigation-case>
             <from-outcome>accueil</from-outcome>
             <to-view-id>/index.xhtml</to-view-id>
             <redirect />
